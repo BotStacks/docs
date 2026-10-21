@@ -80,17 +80,7 @@ def load_pages(docs_root: Path) -> list[DocPage]:
             continue
         text = path.read_text(encoding="utf-8")
         meta = _frontmatter(text)
-        relative = path.as_posix()
-        # Store the path relative to the repository when possible.
-        repo_path = relative
-        marker = "/docs/"
-        if marker in f"/{relative}" and not relative.startswith("docs/"):
-            repo_path = "docs/" + relative.split("/docs/", 1)[1]
-        elif path.is_absolute():
-            try:
-                repo_path = path.relative_to(docs_root.parent).as_posix()
-            except ValueError:
-                repo_path = f"docs/{path.relative_to(docs_root).as_posix()}"
+        repo_path = "docs/" + path.relative_to(docs_root).as_posix()
         headings = tuple(match.group(1).strip() for match in _HEADING.finditer(text))
         pages.append(
             DocPage(
