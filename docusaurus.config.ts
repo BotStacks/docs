@@ -98,7 +98,7 @@ module.exports = {
     image: 'static/img/docusaurus-social-card.jpg',
     navbar: {
       //title: 'BotStacks Developer',
-      logo: { alt: 'BotStacks Logo', src: 'images/logo/light.svg', srcDark: 'images/logo/dark.svg', className: 'navbar-logo' },
+      logo: { alt: 'BotStacks Documentation', src: 'images/logo/light.svg', srcDark: 'images/logo/dark.svg', className: 'navbar-logo' },
       items: [
         //{ to: '/', label: 'Home', position: 'left' },
         //{ type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
