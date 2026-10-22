@@ -56,9 +56,17 @@ def _frontmatter(text: str) -> dict[str, str]:
 
 
 def slug_for(path: str, frontmatter: dict[str, str]) -> str:
-    """Docusaurus route for a docs file when routeBasePath is `/`."""
-    relative = path.split("docs/", 1)[-1]
-    parts = relative.split("/")
+    """Docusaurus route for a docs file when routeBasePath is `/`.
+
+    `path` is a repository-relative path such as `docs/04-tools-features/01-brain-vault.mdx`,
+    or a path already relative to the docs content directory. Only a leading
+    `docs/` prefix is removed. A `docs` directory inside the checkout path,
+    or a nested `docs/` folder in the content tree, is left in place.
+    """
+    relative = path.replace("\\", "/")
+    if relative.startswith("docs/"):
+        relative = relative[len("docs/"):]
+    parts = [part for part in relative.split("/") if part not in {"", "."}]
     stem = parts[-1].rsplit(".", 1)[0]
     if frontmatter.get("id"):
         stem = frontmatter["id"]
@@ -80,17 +88,11 @@ def load_pages(docs_root: Path) -> list[DocPage]:
             continue
         text = path.read_text(encoding="utf-8")
         meta = _frontmatter(text)
-        relative = path.as_posix()
-        # Store the path relative to the repository when possible.
-        repo_path = relative
-        marker = "/docs/"
-        if marker in f"/{relative}" and not relative.startswith("docs/"):
-            repo_path = "docs/" + relative.split("/docs/", 1)[1]
-        elif path.is_absolute():
-            try:
-                repo_path = path.relative_to(docs_root.parent).as_posix()
-            except ValueError:
-                repo_path = f"docs/{path.relative_to(docs_root).as_posix()}"
+        try:
+            content_path = path.resolve().relative_to(docs_root.resolve())
+        except ValueError:
+            content_path = path
+        repo_path = f"docs/{content_path.as_posix()}"
         headings = tuple(match.group(1).strip() for match in _HEADING.finditer(text))
         pages.append(
             DocPage(
