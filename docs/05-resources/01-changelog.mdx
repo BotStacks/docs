@@ -3,6 +3,114 @@ title: "Changelogs"
 description: "Discover the journey of our product's development in the Changelogs."
 sidebarTitle: "Changelogs"
 ---
+## Late October–November 2026 engineering update (review draft)
+
+<sup>Changes merged Oct 23–Nov 2, 2026 · review cutoff, not a release date</sup>
+
+This review draft records changes merged into `BotStacks/platform` after the
+[October 2026 review draft](#october-2026-review-draft). Feature changes below
+were included in `Staging` → `main` promotion PRs, including
+[#602](https://github.com/BotStacks/platform/pull/602),
+[#613](https://github.com/BotStacks/platform/pull/613),
+[#614](https://github.com/BotStacks/platform/pull/614),
+[#620](https://github.com/BotStacks/platform/pull/620),
+[#622](https://github.com/BotStacks/platform/pull/622),
+[#633](https://github.com/BotStacks/platform/pull/633), and
+[#639](https://github.com/BotStacks/platform/pull/639).
+**A merge to `main` confirms repository promotion, not a verified customer
+rollout, published-site installation, or full end-to-end test.** This is not
+a new versioned release announcement.
+
+~ **New Features:**
+- **Smart AI AutoBuilder:** A four-phase Goal → Business Details → Knowledge →
+  Create Assistant progress view, clearer website validation, and safer draft
+  handling that retains existing knowledge sources. Assistant creation and
+  account limits still use the existing backend flow.
+  ([#610](https://github.com/BotStacks/platform/pull/610))
+- **Real-Time Preview and Answer Inspector:** Preview a persisted assistant
+  using the existing live chat runtime, with returned supporting excerpts,
+  source context, and recoverable error states. Displayed sources are not
+  independent proof of answer correctness.
+  ([#611](https://github.com/BotStacks/platform/pull/611))
+- **Smart Knowledge Readiness:** The AutoBuilder Knowledge step distinguishes
+  ready, processing, partial, outdated, failed, and unverified sources, and
+  offers links back to BrainVault and assistant testing.
+  ([#609](https://github.com/BotStacks/platform/pull/609))
+- **One-Click AI Quality Testing:** DIRTBOX Quick QA runs up to three selected
+  questions against the existing assistant runtime and shows actual answers
+  with conservative review labels. It does not automatically certify answer
+  accuracy or approve a release.
+  ([#619](https://github.com/BotStacks/platform/pull/619))
+- **Smart Website Launch Center:** The existing installation journey now
+  includes knowledge-readiness checks, a DIRTBOX handoff, and explicit
+  distinctions between customer-reported visibility, installer handoff, and
+  verified public-site conversations. No new CMS publisher was introduced.
+  ([#621](https://github.com/BotStacks/platform/pull/621))
+- **BrainVault knowledge review:** Workspace-scoped lists identify live-site
+  questions with verified no-hit retrieval, flag conflicting hours or prices
+  for human review, and summarize which sources were retrieved as context.
+  Historical unlabeled turns are not treated as verified gaps, and source
+  usage is not an answer-level citation.
+  ([#608](https://github.com/BotStacks/platform/pull/608),
+  [#632](https://github.com/BotStacks/platform/pull/632),
+  [#634](https://github.com/BotStacks/platform/pull/634))
+
+~ **Improvements:**
+- **Safer BrainVault answers:** Sources with stored text but no searchable
+  vectors remain Partial rather than Ready. When vector search fails, the
+  assistant can fall back to keyword-matched, workspace-authorized assigned
+  source text without treating that fallback as verified indexing.
+  ([#604](https://github.com/BotStacks/platform/pull/604),
+  [#605](https://github.com/BotStacks/platform/pull/605))
+- **Clearer retrieval evidence:** DIRTBOX exposes the retrieved passages and
+  retrieval method for supported answers, and collapses long “Knowledge used”
+  evidence so answers and controls remain accessible. BrainVault shows the
+  last successful import and explains when manual refresh is needed.
+  ([#606](https://github.com/BotStacks/platform/pull/606),
+  [#607](https://github.com/BotStacks/platform/pull/607),
+  [#636](https://github.com/BotStacks/platform/pull/636))
+- **Knowledge-aware approval:** AutoBuilder checks assigned-source identity
+  when approving an assistant; changed source content or assignments require
+  another DIRTBOX review rather than silently reusing an earlier approval.
+  ([#635](https://github.com/BotStacks/platform/pull/635))
+- **Guided installation and preview:** Existing CMS setup uses a guarded,
+  authenticated guidance route; the assistant preview also received
+  responsive typography, contrast, and dark-theme refinements. These
+  improvements do not establish a completed third-party installation.
+  ([#576](https://github.com/BotStacks/platform/pull/576),
+  [#615](https://github.com/BotStacks/platform/pull/615),
+  [#617](https://github.com/BotStacks/platform/pull/617))
+
+~ **Bug Fixes:**
+- **DIRTBOX reliability:** Prevented saved regression probes from being
+  cancelled by unrelated re-renders and prevented late cancelled results
+  from overwriting QA progress. A weak retrieval score now prompts
+  “Check grounding” instead of automatically labeling a coherent answer
+  incorrect. Expanded QA answers and the full sidebar remain scrollable
+  and keyboard accessible.
+  ([#623](https://github.com/BotStacks/platform/pull/623),
+  [#624](https://github.com/BotStacks/platform/pull/624),
+  [#626](https://github.com/BotStacks/platform/pull/626),
+  [#628](https://github.com/BotStacks/platform/pull/628))
+- **Installation status accuracy:** Bot Design now warns about mixed,
+  outdated, partial, or failed knowledge sources rather than reporting
+  them as ready. Wix handoff and a customer's “I can see it” acknowledgment
+  no longer imply an independently verified live conversation.
+  ([#630](https://github.com/BotStacks/platform/pull/630),
+  [#578](https://github.com/BotStacks/platform/pull/578))
+- **Safer CMS changes:** Webflow custom-code updates no longer overwrite
+  existing code when the prerequisite read fails.
+  ([#590](https://github.com/BotStacks/platform/pull/590))
+
+**Verification boundary:** One authenticated Sandbox walkthrough observed the
+AutoBuilder goal and business-details screens, deliberate Starter-plan
+assistant replacement, and navigation into Bot Design. That observation does
+not cover every Back/Next, mobile, failure, or account scenario. Other feature
+PRs have focused tests and CI evidence, but a complete authenticated customer
+journey, third-party website installation, real visitor conversation, and
+post-deployment release verification have **not** been established here.
+These remain release acceptance checks, not claimed successes.
+
 ## October 2026 review draft
 
 <sup>Oct 22, 2026</sup>
