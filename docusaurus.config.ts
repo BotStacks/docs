@@ -30,6 +30,7 @@ module.exports = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          { from: "/billing", to: "/common-tasks/usage-and-costs/track-costs" },
           // Redirect broken URLs to correct ones
           {
             from: '/getting-started/what-is-botstacks/quickstart-guide/create-botstack',
@@ -100,6 +101,7 @@ module.exports = {
       //title: 'BotStacks Developer',
       logo: { alt: 'BotStacks Logo', src: 'images/logo/light.svg', srcDark: 'images/logo/dark.svg', className: 'navbar-logo' },
       items: [
+        { to: '/common-tasks/usage-and-costs/track-costs', label: 'Billing', position: 'right' },
         //{ to: '/', label: 'Home', position: 'left' },
         //{ type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
         { to: 'mailto:support@botstacks.ai', label: 'Contact Us', position: 'right', className: 'hide-on-mobile' },
