@@ -1,0 +1,61 @@
+---
+title: Pay As You Go and Usage Limits
+sidebar_label: Pay as you go
+slug: /billing/pay-as-you-go
+description: How upcoming BotStacks prepaid credits, pages, builds, tests, and storage differ.
+---
+
+# Pay As You Go and Usage Limits
+
+:::important Not available for purchase yet
+This page explains the upcoming prepaid model. Top-ups, automatic refill, and the new usage rules are not yet live. Existing accounts continue under their current terms. See [plans and prices](/common-tasks/usage-and-costs/track-costs).
+:::
+
+## Pay before you use more
+
+The upcoming model uses prepaid packs, with a $10 minimum pack purchase. It does not create a postpaid usage invoice when you exceed an allowance.
+
+Included monthly units are used first, then purchased units. Purchased usage does not expire; included monthly allowances reset each paid service period. All assistants in a billed workspace draw from the same pools.
+
+Adding a $10/month assistant slot gives you one more assistant, not another 1,000 AI credits or another set of monthly allowances.
+
+## What each activity uses
+
+| Activity | Upcoming usage treatment |
+| --- | --- |
+| Live assistant reply or AI API/MCP response | AI credits based on model input, output, and memory model work, plus one request service fee |
+| AutoBuilder generation | One build, plus AI credits and any newly learned page units |
+| Manual flow edits | No usage fee |
+| DIRTbox test | One test, including bounded AI and retrieval processing; no separate AI-credit debit |
+| Successful ingestion or refresh | One page unit for each started 8,000 normalized characters per document |
+| Unchanged or failed ingestion | No paid page-unit consumption |
+| Non-AI external API/MCP read | One read per successful page of results; AI endpoints use credits instead |
+| Billing, configuration, export, and deletion | No usage fee; access and operational limits still apply |
+
+Model-specific rates and supported models will be published before paid usage opens. The planned request service fee is 0.10 credits per successful top-level AI request; internal steps do not each add another request fee. A credit is a service unit, not a fixed conversation length or a dollar of model-provider spend.
+
+For example, successfully learning a document with 12,000 normalized characters uses two page units. If that document has not changed, an unchanged-content check does not consume another paid page unit. This is an explanation of the upcoming rule, not a claim about your existing account's meter.
+
+## Storage is capacity, not a usage pack
+
+The upcoming Professional allowance is 100 MiB of normalized content and 25,000 retained vectors, including memory. A $10/month expansion adds another 100 MiB and 25,000 vectors. Both ceilings apply; hitting either stops new storage writes under the planned enforcement rules.
+
+Storage expansion does not add source slots, AI credits, page units, or longer conversation retention. Deleting retained content frees capacity but does not refund work already completed.
+
+## What happens at a limit?
+
+Under the upcoming policy, AI work pauses when its required allowance and prepaid balance are exhausted. A static contact option can remain available without another AI call. Work that needs more than one resource, such as an AutoBuilder run that learns pages, needs capacity in each applicable pool.
+
+Automatic refill is off by default. Any future refill option must show its amount and spending cap and require an explicit opt-in. Manual purchases do not enable automatic refill.
+
+## Existing balances and cancellation
+
+Existing purchased balances retain their original terms; they are not silently converted to the new units. Under the upcoming policy, cancellation preserves purchased balances, but preserving a balance does not by itself keep a paid plan's features active. Any reactivation requirements must be shown before purchase.
+
+For a refund, duplicate payment, disputed balance, or cancellation question, contact [support@botstacks.ai](mailto:support@botstacks.ai). Refund handling follows the terms disclosed for the purchase and applicable requirements; this page does not promise an automatic refund or impose a blanket no-refund rule.
+
+## What is not included?
+
+Voice, image generation, paid web search, and paid third-party tools are not part of the upcoming self-service price schedule. They need separate published rates before they can be sold. There is no unlimited usage entitlement.
+
+Read [managing your subscription](/billing/manage-subscription) for invoices, payment methods, cancellations, and payment troubleshooting.

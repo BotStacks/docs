@@ -1,176 +1,79 @@
 ---
 id: track-costs
-title: Track Usage and LLM Costs
-sidebar_label: Track Usage & LLM Costs
+title: Billing and Pricing
+sidebar_label: Plans and pricing
+description: BotStacks subscription pricing, upcoming prepaid usage, existing customer terms, and tax information.
 ---
 
 # Billing and Pricing
 
-BotStacks offers simple and transparent pricing designed to scale with your needs. Whether you're just getting started or running a large agency, we have a plan that fits your requirements.
+Choose a workspace plan, then add prepaid usage when it becomes available. All prices below are in **USD**. **BotStacks does not collect taxes.**
 
-## Viewing Usage and Billing in BotStacks
+:::important Availability — updated November 15, 2026
+The new plans and prepaid packs below are **upcoming**. New paid upgrades, additional assistant slots, storage expansion, and prepaid top-ups are not available for purchase yet. There is no announced launch date.
 
-You can view your current usage, subscription plan, token consumption, and billing details directly from the BotStacks dashboard.
+Existing customers keep their current subscription terms and purchased balances. This guide does not change an existing monthly or annual agreement. Use your current invoice and account plan to identify your existing price and allowances; contact support if they disagree.
+:::
 
-### Steps:
+See the [public pricing page](https://www.botstacks.ai/pricing/) for the same upcoming offers. [Manage an existing subscription](/billing/manage-subscription) or [learn how prepaid usage will work](/billing/pay-as-you-go).
 
-1. **Open the BotStacks Dashboard**  
-   Log in at [sandbox.botstacks.ai](https://sandbox.botstacks.ai/).
+## Upcoming workspace plans
 
-2. **Go to Billing**  
-   In the sidebar, click **Billing**.
+Allowances belong to one billed workspace and are shared by its assistants. Adding an assistant does not multiply the workspace's included usage.
 
-3. **Review Your Usage and Plan**  
-   On the Billing page, you can see:
-   - Your current plan (e.g., Starter, Pro, Pro+)
-   - AI token usage and limits for the current billing cycle
-   - Assistant limits for your plan
-   - Current subscription cost
-   - Payment method management
+| Included | Starter evaluation | Professional (Pro) |
+| --- | --- | --- |
+| Price | $0 | $29/month |
+| Workspaces | 1 | 1 |
+| Assistant slots | 1 | 3 |
+| AI credits | 500 once | 1,000 per paid monthly period |
+| Page units learned | 3 once | 500/month |
+| AutoBuilder runs | 3 once | 25/month |
+| DIRTbox tests | 25 once | 250/month |
+| Retained knowledge sources | 5 | 25 |
+| Retained normalized content | 10 MiB | 100 MiB |
+| Retained vectors, including memory | 2,500 | 25,000 |
+| Conversation retention | 7 days | 30 days |
+| Workspace members | 1 | 5 |
+| Successful external non-AI API/MCP reads | Not included | 10,000/month |
 
-<img src="/images/common-tasks/billing.png" alt="BotStacks Billing Usage Screenshot" style={{borderRadius: '14px', boxShadow: '0 1px 8px rgba(0,0,0,0.12)', margin: '1.5em 0', maxWidth: '600px'}} />
+Starter evaluation allowances are one-time allowances for eligible new owners, not a monthly refill or a fresh grant for each assistant. These upcoming limits do not reduce an existing account's allowances.
 
-## Pricing Plans Overview
+**No new annual offer is currently available.** Previously published $12 Pro, $19 Partners, Teams, Pro+, and agency offers are legacy offers, not the new self-service catalog. Older annual discounts and unlimited workspace claims should not be used to estimate a new purchase. Existing agreements retain their terms.
 
-BotStacks offers four main pricing tiers, each designed for different use cases and team sizes.
+## Upcoming prepaid packs and capacity
 
-### Starter Plan - Free Forever
-**Perfect for hobbyists & AI explorers**
+These offers are not enabled for purchase yet.
 
-- **Price**: $0 per month
-- **Workspaces**: 1 workspace
-- **AI Tokens**: 5,000 tokens/month included
-- **LLM Support**: Use any LLM (OpenAI, Claude, Gemini, Mistral, DeepSeek, etc.)
-- **Features**: Usage tracker & alerts
-- **Best for**: Learning, experimentation, and small projects
+| Offer | Price | Adds |
+| --- | --- | --- |
+| AI credits | $10 / $25 / $50 | 1,000 / 2,500 / 5,000 credits |
+| Pages | $10 | 500 page units |
+| DIRTbox tests | $10 | 200 tests |
+| AutoBuilder runs | $10 | 20 runs; AI credits and pages are separate |
+| External non-AI API/MCP reads | $10 | 20,000 successful reads |
+| Additional assistant slot | $10/month | One slot; no extra credits or other allowances |
+| Storage expansion | $10/month | Additional 100 MiB of content and 25,000 vectors |
 
-### Pro Plan - $12/month
-**Ideal for solo builders and early teams**
+Prepaid usage is a one-time purchase. Assistant slots and storage are recurring monthly capacity. Storage expansion does not add knowledge-source slots, conversation retention, or AI/page allowances. Separate workspaces require separate plans; contact support for requirements beyond the published limits.
 
-- **Price**: $12 per month (or $120/year - save 25%)
-- **Workspaces**: 1 upgraded workspace
-- **AI Tokens**: 100,000 tokens/month
-- **BrainVault Extract Tokens**: 25,000 tokens/month
-- **Features**: 
-  - All BotStacks tools + API Node access
-  - In-app usage monitoring
-  - Usage tracker & alerts
-- **Best for**: Individual developers and small teams building production assistants
+## Credits, pages, and storage are different
 
-### Teams Plan - $29/month
-**For teams that need power, flexibility, and advanced automations**
+- **AI credits** measure AI work. One credit is not one message and is not one provider token. The model, input, output, and memory work affect consumption.
+- **Page units** measure successfully learned content. A page unit covers up to 8,000 normalized characters in a document. A longer document can use several units.
+- **Knowledge sources** count retained source entries. One source can contain many pages.
+- **Storage** measures retained content and vectors. Both limits apply. Deleting content frees storage; it does not restore already-consumed page units.
 
-- **Price**: $29 per month (or $290/year - save 25%)
-- **Workspaces**: All Pro features + 3 editors included
-- **AI Tokens**: 500,000 tokens/month
-- **BrainVault Extract Tokens**: 100,000 tokens/month
-- **Advanced Features**:
-  - Dynamic Site Capture with Puppeteer Stealth
-  - Smart Performance (Mem0 auto-fallback)
-  - All Pro features
-- **Best for**: Growing teams and businesses with multiple assistants
+Model-specific AI rates will be published before paid usage opens. Do not convert old token balances into credits yourself or assume an automatic conversion.
 
-### Partners Plan - $19/month
-**For agencies building client AI bots and automations**
+## Renewals, balances, and taxes
 
-- **Price**: $19 per month (or $199/year - save 25%)
-- **Workspaces**: Unlimited client workspaces
-- **Team Access**: Unlimited editors & viewers per client
-- **Billing Options**: Internal client billing or pass-through Stripe metering
-- **Support**: Priority access across all workspaces
-- **Best for**: Agencies and consultancies managing multiple client projects
+For the upcoming prepaid offers, included monthly allowances reset each paid service period; unused included allowances do not roll over. Purchased usage does not expire. All assistants share the same workspace pools. See [prepaid usage and limits](/billing/pay-as-you-go) for details.
 
-## What's Included in Each Plan
+Automatic refill is off by default. The upcoming model does not use postpaid usage overages. No new automatic-refill feature is available yet.
 
-Here's a breakdown of what you get with each plan:
+BotStacks does not collect taxes. Payments are processed through Stripe; the checkout or invoice shows the actual amount for an available purchase. If an invoice or checkout unexpectedly shows tax or a price you do not recognize, contact support before making another payment.
 
-| What You Get | Starter | Pro | Teams | Partners |
-|--------------|---------|-----|-------|----------|
-| **Monthly Cost** | Free | $12 | $29 | $19 |
-| **Workspaces** | 1 workspace | 1 upgraded workspace | 1 workspace + 3 team members | Unlimited client workspaces |
-| **AI Tokens** | 5K/month | 100K/month | 500K/month | 500K/month |
-| **BrainVault Extract** | Not included | 25K/month | 100K/month | 100K/month |
-| **Assistants** | 2 bots | 5 bots (+$3 for 5 more) | 5 bots (+$3 for 5 more) | Unlimited |
-| **Knowledge Sources** | 50 sources | 250 sources | 500 sources | 3,000 sources |
-| **Client Management** | Not available | Not available | Not available | 5 clients/month (+$75/client) |
-| **API Access** | Yes | Yes | Yes | Yes |
-| **Web Widget** | Yes | Yes | Yes | Yes |
-| **Integrations** | Yes | Yes | Yes | Yes |
-| **Dynamic Web Scraping** | No | No | Yes | Yes |
-| **Smart Performance Mode** | No | No | Yes | Yes |
-| **White-label Bots** | No | Yes | Yes | Yes |
-| **Client Dashboard** | No | No | No | Yes |
-| **Priority Support** | No | No | No | Yes |
+## Billing help
 
-## Usage and Overages
-
-### Token Usage
-- **AI Tokens**: Used when your assistant calls an LLM (GPT-4, Claude, etc.)
-- **BrainVault Extract Tokens**: Used when extracting information from documents and websites
-- **Monitoring**: Track usage in real-time through the dashboard
-
-### Overage Handling
-- **Starter**: Soft warnings at 5K tokens
-- **Pro**: Soft alerts at 75K tokens, hard cap at 100K
-- **Teams**: Soft alerts on overages
-- **Partners**: Soft alerts on overages
-
-### Additional Token Packs
-For Pro and above plans, you can purchase additional token packs when you need more capacity.
-
-## Workspace Options (Partners Only)
-
-Partners can choose between two workspace types:
-
-### Standard Workspace
-- **Price**: $12/month
-- **Features**: Static scraping, 100K AI tokens & 25K extract tokens
-
-### Premium Workspace
-- **Price**: $29/month
-- **Features**: Dynamic Capture, Mem0 fallback, LLM Post-processing, 500K AI tokens, 100K extract tokens
-
-## Billing and Payment
-
-### Payment Methods
-- Credit/debit cards
-- Annual billing available with 25% savings
-- Secure payment processing via Stripe
-
-### Billing Cycle
-- Monthly or annual billing available
-- Prorated charges when upgrading mid-cycle
-- No refunds for downgrades
-
-### Client Billing (Partners)
-- Internal client billing options
-- Pass-through Stripe metering
-- Flexible pricing models for client projects
-
-## Support & Help
-
-Here's what kind of support you can expect:
-
-| Plan | Community | Email Help | Live Chat | Dedicated Manager | Priority Setup |
-|------|-----------|------------|-----------|-------------------|----------------|
-| **Starter** | Discord | Yes | No | No | No |
-| **Pro** | Discord | Yes | Yes | No | No |
-| **Teams** | Discord | Yes | Yes | Yes | No |
-| **Partners** | Discord | Yes | Yes | Yes | Yes |
-
-## Getting Started
-
-1. **Choose Your Plan**: Start with the free plan to explore BotStacks
-2. **Upgrade When Ready**: Move to Pro or Teams as your needs grow
-3. **Scale with Partners**: Use the Partners plan for client work
-4. **Monitor Usage**: Keep track of your token consumption in the dashboard
-
-## Need Help with Billing?
-
-- **Billing Questions**: Contact support through the dashboard
-- **Enterprise Inquiries**: [Contact Sales](https://www.botstacks.ai/contact)
-- **Community Support**: [Join our Discord](https://discord.gg/zdEYM3nrHW)
-
----
-
-*Pricing is subject to change. For the most current pricing information, visit [BotStacks Pricing](https://www.botstacks.ai/pricing).*
+Email [support@botstacks.ai](mailto:support@botstacks.ai) with your workspace name and invoice number, if available. Do not send your full card number, security code, API keys, or passwords. For launch updates or a larger deployment, [contact BotStacks](https://www.botstacks.ai/contact/).
