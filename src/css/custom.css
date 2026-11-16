@@ -77,3 +77,9 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid #c4
   .navbar__search-input { max-width:8rem; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .navbar-sidebar { transition:none; } }
+
+@media(max-width:380px) {
+  .navbar__inner > .navbar__items .navbar__brand { max-width:calc(100vw - 11rem); margin-right:0; }
+  .navbar__inner .navbar__title { display:none; }
+  .navbar__search-input { max-width:6rem; }
+}

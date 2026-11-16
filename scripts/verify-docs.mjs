@@ -11,7 +11,7 @@ fs.mkdirSync('test-results/docs',{recursive:true});
 const results=[];
 try {
  for(const width of [320,390,768,1440]) {
-  const context=await browser.newContext({viewport:{width,height:844}});
+  const context=await browser.newContext({viewport:{width,height:844},reducedMotion:'reduce'});
   const page=await context.newPage();
   for(const route of routes) {
    const response=await page.goto(base+route,{waitUntil:'networkidle'});
@@ -25,6 +25,9 @@ try {
    results.push({width,route,...data});
   }
   await page.goto(base,{waitUntil:'networkidle'});
+  const brand=await page.locator('.navbar__inner .navbar__brand').boundingBox();
+  const search=await page.locator('.navbar__search-input').boundingBox();
+  if(search) assert.ok(brand.x+brand.width<=search.x+1,'search overlaps brand at '+width);
   const cta=page.locator('.docs-hero .button');
   const button=await cta.boundingBox(),hero=await page.locator('.docs-hero').boundingBox();
   assert.ok(button.x>=hero.x&&button.x+button.width<=hero.x+hero.width+1,'CTA exceeds hero');
@@ -33,6 +36,7 @@ try {
   if(width<997) {
    await page.locator('.navbar__toggle').click();
    await page.locator('.navbar-sidebar__close').waitFor({state:'visible'});
+   await page.waitForFunction(()=>Math.abs(document.querySelector('.navbar-sidebar').getBoundingClientRect().x)<1);
    const close=await page.locator('.navbar-sidebar__close').boundingBox();
    const logo=await page.locator('.navbar-sidebar__brand .navbar__brand').boundingBox();
    assert.ok(close.x>=logo.x+logo.width-1,'close overlaps logo');
