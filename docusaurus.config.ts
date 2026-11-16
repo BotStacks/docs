@@ -2,12 +2,12 @@ const {themes: prismThemes} = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 module.exports = {
-  title: 'BotStacks Developer',
+  title: 'BotStacks Help Center',
   url: 'https://docs.botstacks.ai',
   baseUrl: '/',
   favicon: 'favicon.svg',
   organizationName: 'BotStacks',
-  projectName: 'botstacks-developer',
+  projectName: 'docs',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: { defaultLocale: 'en', locales: ['en'] },
@@ -96,12 +96,14 @@ module.exports = {
   ],
 
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
-    image: 'static/img/docusaurus-social-card.jpg',
+    image: 'images/logo/dark.svg',
     navbar: {
-      //title: 'BotStacks Developer',
+      //title: 'BotStacks Help Center',
       logo: { alt: 'BotStacks Logo', src: 'images/logo/light.svg', srcDark: 'images/logo/dark.svg', className: 'navbar-logo' },
       items: [
-        { to: '/common-tasks/usage-and-costs/track-costs', label: 'Billing', position: 'right' },
+        { to: '/website-guides/start', label: 'Start here', position: 'left' },
+        { to: '/website-guides/platforms', label: 'Your website', position: 'left' },
+        { href: 'https://www.botstacks.ai/pricing/', label: 'Pricing', position: 'right' },
         //{ to: '/', label: 'Home', position: 'left' },
         //{ type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
         { to: 'mailto:support@botstacks.ai', label: 'Contact Us', position: 'right', className: 'hide-on-mobile' },
