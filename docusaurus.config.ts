@@ -9,7 +9,7 @@ module.exports = {
   organizationName: 'BotStacks',
   projectName: 'docs',
   onBrokenLinks: 'throw',
-  markdown: { hooks: { onBrokenMarkdownLinks: 'throw' } },
+  onBrokenMarkdownLinks: 'throw',
   i18n: { defaultLocale: 'en', locales: ['en'] },
   presets: [
     [
