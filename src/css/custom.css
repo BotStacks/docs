@@ -1,295 +1,79 @@
 :root {
-  --ifm-color-primary: #5D86FF;
-  --ifm-color-primary-light: #4A75FF;
-  --ifm-color-primary-dark: #7487FF;
-  --ifm-color-primary-lighter: #5D86FF;
-  --ifm-color-primary-lightest: #809EFF;
-  --ifm-color-primary-darker: #2047CC;
-  --ifm-color-primary-darkest: #163299;
-  --side-padding: clamp(1rem, 10vw, 10rem);
+  --ifm-color-primary:#a9b8ff;
+  --ifm-color-primary-dark:#95a7ff;
+  --ifm-color-primary-darker:#889cff;
+  --ifm-color-primary-darkest:#6b84ff;
+  --ifm-color-primary-light:#bdc8ff;
+  --ifm-color-primary-lighter:#cbd3ff;
+  --ifm-color-primary-lightest:#e0e5ff;
+  --ifm-font-family-base:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --ifm-line-height-base:1.75;
+  --ifm-navbar-height:4rem;
+  --ifm-navbar-sidebar-width:min(24rem,100vw);
+  --ifm-link-color:#a9b8ff;
 }
-
 html[data-theme='dark'] {
-  --ifm-background-color: #0d0f14;
-  --ifm-background-surface-color: #1d212d;
-  --ifm-background-surface-color-alt: #161a22;
-
-  --ifm-font-color-base: #9ca3af;
-
-  --ifm-color-primary: #5D86FF;
-  --ifm-color-primary-light: #4A75FF;
-  --ifm-color-primary-dark: #2047CC;
-  --ifm-color-primary-lighter: #5D86FF;
-  --ifm-color-primary-lightest: #809EFF;
-  --ifm-color-primary-darker: #163299;
+  --ifm-background-color:#0a0a10;
+  --ifm-background-surface-color:#151522;
+  --ifm-font-color-base:#d6d8e5;
+  --ifm-heading-color:#f5f6fc;
+  --ifm-navbar-background-color:#10101b;
+  --ifm-footer-background-color:#10101b;
+  --ifm-menu-color:#d6d8e5;
+  --ifm-menu-color-active:#c4ceff;
 }
-
-/* Make header text white in dark mode */
-html[data-theme='dark'] h1,
-html[data-theme='dark'] h2,
-html[data-theme='dark'] h3,
-html[data-theme='dark'] h4,
-html[data-theme='dark'] h5,
-html[data-theme='dark'] h6 {
-  color: #fff;
-}
-
-/* Navbar and Footer background */
-.navbar,
-.footer {
-  background-color: var(--ifm-background-color);
-  box-shadow: none;
-  border: none;
-}
-
-.footer__items {
-  /* the <ul> that holds every link  */
-  display: flex;
-  /* turn it into a flex-container   */
-  flex-wrap: wrap;
-  /* let it wrap on small screens    */
-  gap: 0.75rem;
-  /* space between links             */
-  list-style: none;
-  /* kill bullets (safari quirk)     */
-  padding-left: 0;
-  /* align neatly with logo          */
-}
-
-.footer__item {
-  /* each individual <li>            */
-  margin: 0;
-  /* strip default left-margin       */
-}
-
-/* --- Navbar: keep "Dashboard" text white (unchanged) --- */
-.dashboard-link {
-  color: #fff !important;
-}
-
-/* 1. Restore side padding for the whole page */
-.main-wrapper {
-  padding-left: clamp(1.5rem, 8vw, 6rem);
-  padding-right: clamp(1.5rem, 8vw, 6rem);
-}
-
-/* 2. Add extra space between sidebar and main content */
-.main-wrapper .container {
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-/* 3. Add side padding to the navbar */
-.navbar__inner {
-  padding-left: clamp(1.5rem, 8vw, 6rem);
-  padding-right: clamp(1.5rem, 8vw, 6rem);
-}
-
-.navbar::after {
-  content: "";
-  position: absolute;
-  left: clamp(1.5rem, 8vw, 6rem);
-  right: clamp(1.5rem, 8vw, 6rem);
-  bottom: 0;
-  height: 1px;
-  background: var(--ifm-color-emphasis-200);
-}
-
-/* Steps Container */
-.steps {
-  counter-reset: step-counter;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-/* Individual Step */
-.steps li {
-  display: flex;
-  align-items: center;
-  /* Vertical centering */
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
-  background-color: #ffffff;
-  border-radius: 0.75rem;
-  border-left: 4px solid var(--ifm-color-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  position: relative;
-  transition: background-color 0.3s, border-left-color 0.3s;
-}
-
-/* Dark mode support */
-html[data-theme='dark'] .steps li {
-  background-color: var(--ifm-background-surface-color);
-  border-left-color: var(--ifm-color-primary);
-}
-
-/* Step Counter */
-.steps li::before {
-  counter-increment: step-counter;
-  content: counter(step-counter);
-  width: 40px;
-  height: 40px;
-  background-color: var(--ifm-color-primary);
-  color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  margin-right: 1rem;
-  flex-shrink: 0;
-}
-
-/* Dark mode support for step counter */
-html[data-theme='dark'] .steps li::before {
-  background-color: var(--ifm-color-primary-lighter);
-  color: #ffffff;
-}
-
-/* Step Text */
-.steps li strong {
-  margin: 0;
-  /* Optionally, set line-height to match the step number's height */
-  line-height: 40px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.steps li br {
-  display: none; /* Prevents <br /> from adding extra height */
-}
-
-.steps li p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Dark mode text colors */
-html[data-theme='dark'] .steps li strong {
-  color: #ffffff;
-}
-
-html[data-theme='dark'] .steps li p {
-  color: var(--ifm-font-color-base);
-}
-
-/* Hover Effect */
-.steps li:hover {
-  background-color: var(--ifm-color-primary-lightest);
-  border-left-color: var(--ifm-color-primary-darkest);
-}
-
-/* Dark Mode Hover Effect */
-html[data-theme='dark'] .steps li:hover {
-  background-color: var(--ifm-background-surface-color-alt);
-  border-left-color: var(--ifm-color-primary-darker);
-}
-
-/* Active State */
-.steps li.active {
-  background-color: var(--ifm-color-primary-lighter);
-  border-left-color: var(--ifm-color-primary-dark);
-  color: #ffffff;
-}
-
-/* Dark Mode Active State */
-html[data-theme='dark'] .steps li.active {
-  background-color: var(--ifm-color-primary-darker);
-  border-left-color: var(--ifm-color-primary);
-  color: #ffffff;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.navbar__logo img {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* 1  Contain the zoomed picture inside the *logical* viewport */
-.medium-zoom-image--opened {
-  max-inline-size: 100vw !important;
-  /* width ≤ viewport width  */
-  max-block-size: 100vh !important;
-  /* height ≤ viewport height */
-  /* ↓ classic fallbacks for older browsers ↓ */
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-}
-
-@media (max-width: 600px) {
-  .main-wrapper,
-  .navbar__inner {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .main-wrapper .container {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  .navbar::after {
-    left: 0 !important;
-    right: 0 !important;
-  }
-  .navbar__items .hide-on-mobile {
-    display: none !important;
-  }
-  .navbar-logo img {
-    max-height: 32px !important;
-    width: auto !important;
-  }
-  .navbar__search {
-    display: none !important;
-  }
-  .card-group {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-  }
-}
-
-@media (max-width: 1200px) {
-  .main-wrapper {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .main-wrapper .container {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  .navbar__inner {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  .navbar::after {
-    left: 0 !important;
-    right: 0 !important;
-  }
-}
-
-.navbar__toggle {
-  margin-right: 1rem;
-}
-/* Website-owner help center: responsive cards and readable documentation. */
-html[data-theme='dark'] { --ifm-background-color:#0a0a10; --ifm-background-surface-color:#151522; --ifm-font-color-base:#d6d8e5; --ifm-color-primary:#a9b8ff; --ifm-link-color:#a9b8ff; }
+* { box-sizing:border-box; }
+.navbar { border-bottom:1px solid #34364d; box-shadow:none; }
+.navbar__inner { min-width:0; gap:.5rem; }
+.navbar__brand { min-width:0; margin-right:.75rem; }
+.navbar__logo { flex-shrink:1; height:2rem; min-width:0; }
+.navbar__logo img { display:block; height:100%; width:auto; max-width:100%; margin:0; }
+.navbar__toggle,.navbar-sidebar__close { flex:0 0 44px; width:44px; height:44px; margin:0; display:inline-flex; align-items:center; justify-content:center; }
+@media(min-width:997px) { .navbar__toggle { display:none; } }
+.navbar-sidebar { background:#10101b; max-width:100vw; }
+.navbar-sidebar__brand { gap:.5rem; padding:1rem; justify-content:space-between; }
+.navbar-sidebar__brand .navbar__brand { flex:1; overflow:hidden; }
+.navbar-sidebar__close { margin-left:auto; }
+.navbar-sidebar__items { height:calc(100dvh - var(--ifm-navbar-height)); }
+.navbar-sidebar__item { overflow-y:auto; overscroll-behavior:contain; padding:.75rem; padding-bottom:calc(2rem + env(safe-area-inset-bottom)); }
+.navbar-sidebar__back { white-space:normal; line-height:1.4; min-height:48px; padding:1rem; }
+.menu__link { min-height:44px; white-space:normal; overflow-wrap:anywhere; line-height:1.45; }
+.menu__list-item-collapsible { align-items:center; }
+.menu__caret { flex-shrink:0; min-height:44px; min-width:44px; }
+.dashboard-link,.docs-hero .button { background:#a9b8ff; color:#101226!important; border:1px solid #a9b8ff; }
 .markdown { font-size:1.0625rem; line-height:1.8; overflow-wrap:anywhere; }
-.markdown h1 { font-size:clamp(2rem,4vw,3.25rem); line-height:1.15; letter-spacing:-.03em; }
+.markdown h1 { font-size:clamp(2rem,4vw,3rem); line-height:1.15; letter-spacing:-.025em; }
 .markdown h2 { margin-top:2.5rem; line-height:1.25; }
+.markdown h3 { line-height:1.35; }
 .markdown table { display:block; max-width:100%; overflow-x:auto; }
-.docs-hero { padding:clamp(1.5rem,4vw,3.5rem); border:1px solid #34364d; border-radius:24px; background:radial-gradient(ellipse at top right,#24264a,transparent 75%),#13131f; margin-bottom:2.5rem; }
+.markdown img { max-width:100%; height:auto; margin:1.25rem 0; }
+.markdown pre { max-width:100%; overflow-x:auto; }
+.docs-hero { padding:clamp(1.25rem,4vw,3rem); border:1px solid #34364d; border-radius:24px; background:radial-gradient(ellipse at top right,#24264a,transparent 75%),#13131f; margin-bottom:2.5rem; min-width:0; }
 .docs-eyebrow { font-size:.8rem; letter-spacing:.13em; font-weight:700; color:#b4c1ff; }
 .docs-hero p { max-width:60ch; }
-.docs-hero .button { background:#a9b8ff; color:#101226; border-color:#a9b8ff; white-space:normal; min-height:48px; }
+.docs-hero .button { display:inline-flex; align-items:center; justify-content:center; max-width:100%; min-width:0; min-height:48px; height:auto; padding:.8rem 1.1rem; white-space:normal; overflow-wrap:anywhere; line-height:1.4; text-align:center; }
 .docs-task-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-.docs-task-grid a { display:flex; flex-direction:column; gap:.65rem; padding:1.5rem; border:1px solid #36384e; border-radius:16px; background:#151522; color:#f5f6fc; text-decoration:none; transition:border-color .15s; }
+.docs-task-grid a { display:flex; flex-direction:column; gap:.65rem; min-width:0; padding:1.4rem; border:1px solid #36384e; border-radius:16px; background:#151522; color:#f5f6fc; text-decoration:none; }
 .docs-task-grid a:hover { border-color:#a9b8ff; }
 .docs-task-grid span { color:#c4c8da; font-size:1rem; line-height:1.6; }
-a:focus-visible,button:focus-visible { outline:3px solid #c4ceff; outline-offset:4px; }
-@media(max-width:640px) { .docs-task-grid { grid-template-columns:minmax(0,1fr); } .docs-hero { padding:1.4rem; } }
+a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid #c4ceff; outline-offset:3px; }
+.footer__items { display:flex; flex-wrap:wrap; gap:1rem; }
+.footer__item { margin:0; }
+.medium-zoom-image--opened { max-width:100vw!important; max-height:100dvh!important; }
+@media(max-width:996px) {
+  :root { --ifm-navbar-sidebar-width:100vw; }
+  .navbar { padding:.5rem .75rem; }
+  .navbar__items { min-width:0; }
+  .navbar__brand { max-width:calc(100vw - 8rem); }
+  .navbar-sidebar__brand .navbar__brand { max-width:calc(100vw - 5rem); }
+  .navbar__search { min-width:0; }
+  .navbar__items .hide-on-mobile { display:none!important; }
+}
+@media(max-width:640px) {
+  .docs-task-grid { grid-template-columns:minmax(0,1fr); }
+  .docs-hero { padding:1.25rem; border-radius:18px; }
+  .docs-hero .button { width:100%; }
+  .navbar__logo { height:1.65rem; }
+  .navbar__search-input { max-width:8rem; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .navbar-sidebar { transition:none; } }

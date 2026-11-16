@@ -17,7 +17,7 @@ Choose five to ten public pages you own and can keep current. Include a contact 
 4. **DIRTbox:** try real visitor questions before publishing.
 5. **CMS Deployment:** use the installation instructions available in your workspace for your website platform.
 
-Older reference pages may call AI Studio **Sequence Studio** and deployment tools **Activation Kits**. Available controls can differ by workspace; use your current dashboard as the source of truth.
+Open **Assistants** and select your assistant to find Blueprint, Configure, Workflows, Skills, and Bot Design. Knowledge and DIRTbox remain workspace-level destinations. See [the assistant workspace guide](/products/ai-studio) for the current navigation.
 
 ## Know when you are ready
 Your assistant should answer from approved content, admit when it cannot answer, and give a working contact route. Use the [launch checklist](/website-guides/test-and-launch) before adding it to your public website.

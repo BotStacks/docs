@@ -16,7 +16,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Check routes, SEO and responsive navigation
+        run: |
+          python3 -m http.server 4321 --directory build >/tmp/docs-server.log 2>&1 &
+          node scripts/verify-docs.mjs
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: docs-site
-          path: build
+          path: |
+            build
+            test-results/docs

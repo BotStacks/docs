@@ -23,3 +23,6 @@ Use descriptive source names and remove contradictory versions. Assign a person 
 Ask one direct question, one paraphrase, and one question your sources cannot answer. A successful result is accurate, understandable, and honest about missing information.
 
 Next: [Set the assistant's scope](/website-guides/assistant).
+
+## Source controls and processing
+See [Crawler](/products/crawler) for website ingestion and [BrainVault](/products/brainvault) for source assignment, status, and file-upload limits.

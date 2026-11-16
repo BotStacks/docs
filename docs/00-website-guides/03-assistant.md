@@ -21,3 +21,6 @@ Do not imply that the assistant can place orders, book appointments, access acco
 Ask about an unpublished price, a policy exception, and an unrelated topic. Check that the assistant follows its boundaries rather than guessing.
 
 Next: [Test in DIRTbox](/website-guides/test-and-launch).
+
+## Find the configuration controls
+Open **Assistants → your assistant → Configure**. Preview the proposed change before applying it, then test the result in DIRTbox. See [AI Studio](/products/ai-studio) for the workspace tabs and [Workflows](/products/workflows) for topic routing.

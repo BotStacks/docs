@@ -20,3 +20,6 @@ Ask your three questions in the live widget and compare the answers with your ap
 
 ## Before launch
 Complete the [test and launch checklist](/website-guides/test-and-launch). Recheck installation after changing themes, page templates, or publishing settings.
+
+## Installation steps
+Use the current [Squarespace installation guide](/common-tasks/integrations/squarespace-integration) for platform-specific setup, verification, and removal.
