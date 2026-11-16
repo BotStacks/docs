@@ -18,10 +18,10 @@ ROOT = Path(__file__).resolve().parents[3]
 class DocsIndexTests(unittest.TestCase):
     def test_public_pages_keep_their_routes(self):
         pages = {page.slug: page for page in load_pages(ROOT / "docs")}
-        brain = pages["/tools-features/brain-vault"]
-        self.assertEqual(brain.title, "Brain Vault")
-        self.assertEqual(brain.path, "docs/04-tools-features/01-brain-vault.mdx")
-        self.assertIn("/common-tasks/deployment/embed-chatbot", pages)
+        brain = pages["/products/brainvault"]
+        self.assertEqual(brain.title, "BrainVault: manage assistant knowledge")
+        self.assertEqual(brain.path, "docs/products/brainvault.md")
+        self.assertIn("/products/cms-deployment", pages)
         self.assertEqual(
             next(page.path for page in pages.values() if page.slug == "/"),
             "docs/01-index.mdx",
@@ -29,13 +29,13 @@ class DocsIndexTests(unittest.TestCase):
 
     def test_relative_doc_links_resolve_like_docusaurus(self):
         resolved = _resolve(
-            "/common-tasks/knowledge-management/add-knowledge-sources",
-            "../../getting-started/quickstart-guide/create-botstack",
+            "/products/brainvault",
+            "../website-guides/start",
         )
-        self.assertEqual(resolved, "/getting-started/quickstart-guide/create-botstack")
+        self.assertEqual(resolved, "/website-guides/start")
         slugs = {page.slug for page in load_pages(ROOT / "docs")}
         self.assertIn(resolved, slugs)
-        self.assertIn("/common-tasks/deployment/embed-chatbot", slugs)
+        self.assertIn("/products/cms-deployment", slugs)
 
     def test_slug_for_strips_only_a_leading_docs_prefix(self):
         self.assertEqual(
