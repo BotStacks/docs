@@ -8,6 +8,42 @@ const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pa
 for (const route of routes) {
   if (route !== '/') assert.ok(route.endsWith('/'), route+' sitemap trailing slash');
 }
+const llmsTxt=fs.readFileSync('build/llms.txt','utf8');
+const llmsFull=fs.readFileSync('build/llms-full.txt','utf8');
+assert.ok(llmsTxt.startsWith('# BotStacks\n'), 'llms.txt title');
+assert.ok(llmsTxt.includes('\n> '), 'llms.txt summary');
+assert.ok(!llmsTxt.includes('\n# '), 'llms.txt has a single H1');
+const llmsLinks=[...llmsTxt.matchAll(/\]\((https:\/\/docs\.botstacks\.ai[^)]+)\)/g)].map(m=>new URL(m[1]).pathname);
+assert.ok(llmsLinks.length>=routes.length, 'llms.txt lists the docs pages');
+for (const link of llmsLinks) {
+  assert.ok(routes.includes(link), 'llms.txt link is a built route '+link);
+  if (link !== '/') assert.ok(link.endsWith('/'), 'llms.txt trailing slash '+link);
+}
+for (const route of [
+  '/website-guides/start/',
+  '/common-tasks/integrations/wix-integration/',
+  '/common-tasks/integrations/webflow-integration/',
+  '/common-tasks/integrations/squarespace-integration/',
+  '/common-tasks/integrations/bubble-integration/',
+]) {
+  assert.ok(llmsLinks.includes(route), 'llms.txt includes '+route);
+  assert.ok(llmsFull.includes('https://docs.botstacks.ai'+route), 'llms-full includes '+route);
+}
+assert.ok(llmsFull.startsWith('# BotStacks\n'), 'llms-full title');
+assert.ok(llmsFull.length>llmsTxt.length, 'llms-full contains page text');
+const robots=fs.readFileSync('build/robots.txt','utf8');
+assert.ok(!/^disallow:/im.test(robots), 'robots.txt does not disallow llms.txt');
+assert.ok(robots.includes('Allow: /llms.txt') && robots.includes('Allow: /llms-full.txt'), 'robots.txt allows llms files');
+const headers=fs.readFileSync('build/_headers','utf8');
+assert.ok(headers.includes('/llms.txt') && headers.includes('/llms-full.txt') && headers.includes('Content-Type: text/plain'), 'plain-text headers');
+for (const file of ['/llms.txt','/llms-full.txt']) {
+  const response=await fetch(base+file);
+  assert.equal(response.status, 200, file+' status');
+  const type=response.headers.get('content-type')||'';
+  assert.ok(type.startsWith('text/plain'), file+' content-type '+type);
+  const body=await response.text();
+  assert.ok(body.startsWith('# BotStacks'), file+' body');
+}
 const homeHtml=fs.readFileSync('build/index.html','utf8');
 assert.ok(homeHtml.includes('G-WLBVXW3LED') && homeHtml.includes('googletagmanager.com/gtag/js'), 'GA4 gtag');
 const redirects=JSON.parse(fs.readFileSync('audit-redirects.json','utf8'));
