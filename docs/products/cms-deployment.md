@@ -17,6 +17,8 @@ Choose the available widget presentation, branding, and greeting controls. Keep 
 - [Bubble](/common-tasks/integrations/bubble-integration)
 - [GoDaddy Airo compatibility status](/common-tasks/integrations/godaddy-airo-integration)
 
+The earlier Framer installation guide was withdrawn and is not a current setup path. If Framer is not offered in your workspace, use a method from the Add to website flow or contact support with your platform. Do not reuse the retired snippet.
+
 Use the installation option actually offered in your workspace. A repository implementation or an editor preview is not confirmation of a public marketplace listing or a working customer installation.
 
 ## Use the generated installation details

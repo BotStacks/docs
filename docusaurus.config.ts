@@ -5,6 +5,10 @@ module.exports = {
   title: 'BotStacks Help Center',
   url: 'https://docs.botstacks.ai',
   baseUrl: '/',
+  // Cloudflare Pages serves each doc from path/index.html and 308-redirects
+  // the slash-less URL to the trailing-slash URL. Canonicals, internal links,
+  // and the sitemap must use that same URL so the canonical itself does not redirect.
+  trailingSlash: true,
   favicon: 'favicon.svg',
   organizationName: 'BotStacks',
   projectName: 'docs',
@@ -19,6 +23,10 @@ module.exports = {
         docs: { 
           routeBasePath: '/',
           sidebarPath: './sidebars.ts' },
+        gtag: {
+          trackingID: 'G-WLBVXW3LED',
+          anonymizeIP: true,
+        },
         theme: { customCss: './src/css/custom.css' },
       },
     ],
@@ -34,6 +42,14 @@ module.exports = {
   {
     "from": "/common-tasks/integrations/crisp",
     "to": "/resources/integration-availability"
+  },
+  {
+    "from": "/common-tasks/integrations/framer-integration",
+    "to": "/products/cms-deployment"
+  },
+  {
+    "from": "/framer-integration",
+    "to": "/products/cms-deployment"
   },
   {
     "from": "/getting-started/quickstart-guide/deployment",

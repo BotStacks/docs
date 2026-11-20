@@ -1,5 +1,7 @@
 {
   "/common-tasks/integrations/crisp": "/resources/integration-availability",
+  "/common-tasks/integrations/framer-integration": "/products/cms-deployment",
+  "/framer-integration": "/products/cms-deployment",
   "/getting-started/quickstart-guide/deployment": "/products/cms-deployment",
   "/getting-started/conceptual-overview": "/products/ai-studio",
   "/common-tasks/knowledge-management/preview-responses": "/products/brainvault",
