@@ -11,6 +11,14 @@ Help visitors answer one recurring question without searching your whole website
 
 Guided setup is free on every plan, including Starter. [Watch the 83-second setup tutorial](https://www.youtube.com/watch?v=tP0scTX4NJU), then follow the steps below with a question your visitors ask.
 
+For help with one step, choose a short clip.
+
+- [Choose a goal and name your assistant](https://www.youtube.com/shorts/M41b6JGSGzk)
+- [Find your returns policy in BrainVault](https://www.youtube.com/shorts/VHTyRLhJrnc)
+- [Test a shopper’s question in DIRTbox](https://www.youtube.com/shorts/WSxj7CSI4z4)
+- [Compare a chat bubble with full-screen chat](https://www.youtube.com/shorts/hZiHj3PyOWo)
+- [Check the source behind an answer](https://www.youtube.com/shorts/lJ7rk7OsX2c)
+
 ## Prepare your content
 
 Start with one short public page you own that answers a common question. For example, a bakery might choose its pickup policy and test “How late can I pick up an order?” Check the answer against the page. Add more sources within your workspace's allowance once the first one works. Keep account-only pages and private customer details out of public answers.
