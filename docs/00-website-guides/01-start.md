@@ -9,7 +9,7 @@ Help visitors answer one recurring question without searching your whole website
 
 ## Free guided setup
 
-Guided setup is free on every plan, including Starter. Follow the steps below at your own pace. You can also browse the [BotStacks YouTube channel](https://www.youtube.com/@BotStacksai/videos) for available videos.
+Guided setup is free on every plan, including Starter. [Watch the 83-second setup tutorial](https://www.youtube.com/watch?v=tP0scTX4NJU), then follow the steps below with a question your visitors ask.
 
 ## Prepare your content
 
