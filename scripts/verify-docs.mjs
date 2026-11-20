@@ -5,6 +5,11 @@ import { chromium } from 'playwright';
 const base='http://127.0.0.1:4321';
 const sitemap=fs.readFileSync('build/sitemap.xml','utf8');
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
+for (const route of routes) {
+  if (route !== '/') assert.ok(route.endsWith('/'), route+' sitemap trailing slash');
+}
+const homeHtml=fs.readFileSync('build/index.html','utf8');
+assert.ok(homeHtml.includes('G-WLBVXW3LED') && homeHtml.includes('googletagmanager.com/gtag/js'), 'GA4 gtag');
 const redirects=JSON.parse(fs.readFileSync('audit-redirects.json','utf8'));
 const browser=await chromium.launch();
 fs.mkdirSync('test-results/docs',{recursive:true});
@@ -12,13 +17,19 @@ const results=[];
 try {
  for(const width of [320,390,768,1440]) {
   const context=await browser.newContext({viewport:{width,height:844},reducedMotion:'reduce'});
+  await context.route('**/*googletagmanager.com/**', route => route.abort());
+  await context.route('**/*google-analytics.com/**', route => route.abort());
+  await context.route('**/*google.com/g/collect**', route => route.abort());
   const page=await context.newPage();
   for(const route of routes) {
    const response=await page.goto(base+route,{waitUntil:'networkidle'});
    assert.equal(response.status(),200,route);
-   const data=await page.evaluate(()=>({title:document.title,description:document.querySelector('meta[name="description"]')?.content,canonical:document.querySelector('link[rel="canonical"]')?.href,h1:[...document.querySelectorAll('h1')].filter(x=>x.getBoundingClientRect().height>0).length,overflow:document.documentElement.scrollWidth>innerWidth+1,old:/Sequence Studio|Activation Kits?/.test(document.querySelector('main')?.innerText||'')}));
+   const data=await page.evaluate(()=>({title:document.title,description:document.querySelector('meta[name="description"]')?.content,canonical:document.querySelector('link[rel="canonical"]')?.href,h1:[...document.querySelectorAll('h1')].filter(x=>x.getBoundingClientRect().height>0).length,overflow:document.documentElement.scrollWidth>innerWidth+1,old:/Sequence Studio|Activation Kits?/.test(document.querySelector('main')?.innerText||''),breadcrumbText:[...document.querySelectorAll('.breadcrumbs__item')].map(el=>el.textContent.replace(/\s+/g,' ').trim()),breadcrumbItems:[...document.querySelectorAll('script[type="application/ld+json"]')].flatMap(script=>{try{const json=JSON.parse(script.textContent);const lists=(Array.isArray(json)?json:[json]).filter(entry=>entry&&entry['@type']==='BreadcrumbList');return lists.flatMap(entry=>{const items=Array.isArray(entry.itemListElement)?entry.itemListElement:[entry.itemListElement].filter(Boolean);return items.map(item=>({name:item&&item.name,item:item&&item.item}));});}catch{return [{name:'INVALID JSON-LD',item:''}];}})}));
    assert.ok(data.title&&data.description,route+' metadata');
-   assert.equal(data.canonical.replace(/\/$/,''),('https://docs.botstacks.ai'+route).replace(/\/$/,''),route+' canonical');
+   assert.equal(data.canonical,'https://docs.botstacks.ai'+route,route+' canonical');
+   assert.ok(data.breadcrumbText.every(Boolean),route+' breadcrumb text');
+   assert.ok(!data.breadcrumbItems.length||data.breadcrumbItems.length>=2,route+' breadcrumb count '+JSON.stringify(data.breadcrumbItems));
+   assert.ok(data.breadcrumbItems.every(item=>typeof item.name==='string'&&item.name.trim()&&typeof item.item==='string'&&item.item.startsWith('https://docs.botstacks.ai/')&&item.item.endsWith('/')),route+' breadcrumb names');
    assert.equal(data.h1,1,route+' H1');
    assert.equal(data.overflow,false,route+' overflow at '+width);
    assert.equal(data.old,false,route+' outdated product labels');

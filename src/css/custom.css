@@ -38,6 +38,8 @@ html[data-theme='dark'] {
 .navbar-sidebar__item { overflow-y:auto; overscroll-behavior:contain; padding:.75rem; padding-bottom:calc(2rem + env(safe-area-inset-bottom)); }
 .navbar-sidebar__back { white-space:normal; line-height:1.4; min-height:48px; padding:1rem; }
 .menu__link { min-height:44px; white-space:normal; overflow-wrap:anywhere; line-height:1.45; }
+.breadcrumbs { flex-wrap:wrap; }
+.breadcrumb-home-icon { position:relative; top:1px; height:1.1rem; width:1.1rem; margin-right:.35rem; vertical-align:text-top; }
 .menu__list-item-collapsible { align-items:center; }
 .menu__caret { flex-shrink:0; min-height:44px; min-width:44px; }
 .dashboard-link,.docs-hero .button { background:#a9b8ff; color:#101226!important; border:1px solid #a9b8ff; }
