@@ -35,6 +35,8 @@ module.exports = {
     // short name works if the package is resolvable from root
     'docusaurus-plugin-image-zoom',
     'docusaurus-lunr-search',
+    // postBuild: /llms.txt and /llms-full.txt at the site root
+    './plugins/llms-txt',
     [
       '@docusaurus/plugin-client-redirects',
       {
