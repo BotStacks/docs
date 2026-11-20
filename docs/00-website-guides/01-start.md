@@ -7,8 +7,13 @@ description: "Practical BotStacks guidance for website owners: start with a usef
 ## Your first goal
 Help visitors answer one recurring question without searching your whole website. Start with a narrow scope—service details, product information, or an existing FAQ—before expanding.
 
+## Free guided setup
+
+Guided setup is free on every plan, including Starter. Follow the steps below at your own pace. You can also browse the [BotStacks YouTube channel](https://www.youtube.com/@BotStacksai/videos) for available videos.
+
 ## Prepare your content
-Choose five to ten public pages you own and can keep current. Include a contact page and the policies visitors ask about. Exclude account-only pages, private customer information, and outdated offers.
+
+Start with one short public page you own that answers a common question. For example, a bakery might choose its pickup policy and test “How late can I pick up an order?” Check the answer against the page. Add more sources within your workspace's allowance once the first one works. Keep account-only pages and private customer details out of public answers.
 
 ## Follow the workflow
 1. **Crawler:** collect relevant website content. Check the imported pages before relying on them.
@@ -22,4 +27,4 @@ Open **Assistants** and select your assistant to find Blueprint, Configure, Work
 ## Know when you are ready
 Your assistant should answer from approved content, admit when it cannot answer, and give a working contact route. Use the [launch checklist](/website-guides/test-and-launch) before adding it to your public website.
 
-[Choose your website platform](/website-guides/platforms) · [Prepare knowledge](/website-guides/knowledge)
+Choose the guide for the site you can publish to: [Wix](/website-guides/wix), [Webflow](/website-guides/webflow), [Squarespace](/website-guides/squarespace), or [Bubble](/website-guides/bubble). After installation, open the published page in a private browser window and ask the same question you tested in DIRTbox.
