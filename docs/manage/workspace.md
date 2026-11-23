@@ -19,3 +19,7 @@ Use the member and invitation controls offered in your workspace. Verify the int
 Use the sign-in and password-reset flow linked from the app. Never share reset links, passwords, or API keys with support. If billing does not match a payment, preserve the receipt and follow [payment troubleshooting](/billing/manage-subscription) before paying again.
 
 Removing an assistant, leaving a workspace, canceling a subscription, and deleting an account are distinct actions. Read the confirmation and contact support if the scope is unclear.
+
+## Planned Agency workspaces
+
+An agency manages its clients under one bill. Each client has a separate workspace for its assistants and knowledge. Invite a teammate who edits assistants through workspace team settings. Give a client who only needs usage figures report-viewer access for their own workspace. See [Agency billing and client reports](/billing/manage-subscription#agency-billing-and-client-reports-at-launch) for invitations, access removal and budget controls.
